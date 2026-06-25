@@ -1,0 +1,214 @@
+.login {
+    display: l flex;
+    flex-direction: column;
+
+    margin: 0;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background:
+        linear-gradient(135deg,
+            #0f2a1d,
+            #201e3b,
+            #271116);
+
+    font-family: "Poppins", sans-serif;
+}
+
+.lista{
+    text-decoration: none;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.login-container {
+
+    width: 300px;
+
+    padding: 40px;
+
+    border-radius: 30px;
+
+    backdrop-filter: blur(20px);
+
+    background: rgba(255, 255, 255, 0.08);
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, .3);
+
+    text-align: center;
+}
+
+.login-title {
+
+    color: white;
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+}
+
+input, #type {
+
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 15px;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+    background: rgba(255, 255, 255, .1);
+    color: white;
+    box-sizing: border-box;
+}
+
+#type{
+    color: black;
+}
+
+button {
+
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    background: white;
+    transition: .3s;
+}
+
+button:hover {
+
+    transform: translateY(-2px);
+    box-shadow:
+        0 10px 20px rgba(255, 255, 255, .2);
+}
+
+.heart {
+
+    font-size: 3rem;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+#watchlistContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.movie-card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.movie-card img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    display: block;
+}
+
+.movie-card:hover {
+    transform: scale(1.08);
+    z-index: 10;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+
+    opacity: 0;
+    transition: 0.3s;
+
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    padding: 12px;
+}
+
+.movie-card:hover .overlay {
+    opacity: 1;
+}
+
+.tag {
+    font-size: 12px;
+    padding: 4px 8px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    width: fit-content;
+    margin-bottom: 8px;
+}
+
+
+.watch-btn {
+    margin-top: 10px;
+    padding: 6px 10px;
+
+    border: none;
+    border-radius: 6px;
+
+    cursor: pointer;
+
+    background: #e50914;
+    color: white;
+}
+
+.movie-card.movie {
+    box-shadow: 0 0 10px rgba(0, 150, 255, 0.3);
+}
+
+.movie-card.series {
+    box-shadow: 0 0 10px rgba(155, 89, 182, 0.3);
+}
+
+.movie-card.anime {
+    box-shadow: 0 0 10px rgba(255, 105, 180, 0.3);
+}
+
+.delete-btn {
+    margin-top: 10px;
+    padding: 6px 10px;
+
+    background: transparent;
+    color: #ff4d4d;
+
+    border: 1px solid #ff4d4d;
+    border-radius: 6px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.delete-btn:hover {
+    background: #ff4d4d;
+    color: white;
+}
