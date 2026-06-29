@@ -81,52 +81,34 @@ async function loadWatchlist() {
     snapshot.forEach(doc => {
 
         const item = doc.data();
+        const id = doc.id;
+
 
         container.innerHTML += `
         <div class="movie-card ${item.type}">
 
     <div class="poster">
-        <img src="https://via.placeholder.com/300x450?text=${encodeURIComponent(item.title)}" />
-    </div>
+        <h3>${item.title}</h3>
+        
+        <span class="tag">${item.type}</span>
 
+        <p class="added-by"> por: ${item.addedBy.split("@")[0]} </p>   
+
+    </div>
         <div class="overlay">
 
-            <h3>${item.title}</h3>
+            <button class="watch-btn"> Assistido </button>
 
-            <span class="tag">${item.type}</span>
-
-            <p class="added-by">
-                Added by ${item.addedBy}
-            </p>
-
-            <button class="watch-btn">
-                Mark as watched
-            </button>
-
+            <div class="card">
+                <button class="delete-btn" data-id="${id}">
+                    Remover
+                </button>
+            </div>
+            
         </div>
-
     </div>
     `;
 
-    });
-
-    
-    snapshot.forEach((doc) => {
-
-        const item = doc.data();
-        const id = doc.id;
-
-        container.innerHTML += `
-            <div class="card">
-
-
-
-                <button class="delete-btn" data-id="${id}">
-                    Delete
-                </button>
-
-            </div>
-        `;
     });
 
 
