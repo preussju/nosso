@@ -207,15 +207,15 @@ button:hover {
 }
 
 .movie-card.movie {
-    box-shadow: 0 0 10px rgba(113, 196, 255, 0.675);
+    box-shadow: 0 0 10px rgb(59, 174, 255);
 }
 
 .movie-card.series {
-    box-shadow: 0 0 10px rgba(181, 182, 89, 0.74);
+    box-shadow: 0 0 10px rgb(253, 255, 120);
 }
 
 .movie-card.anime {
-    box-shadow: 0 0 10px rgba(247, 74, 160, 0.685);
+    box-shadow: 0 0 10px rgb(247, 74, 161);
 }
 
 .delete-btn {
