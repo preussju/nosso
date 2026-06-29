@@ -28,6 +28,7 @@ h1 {
     font-size: 1.5rem;
 }
 
+
 .login-container {
 
     width: 300px;
@@ -83,6 +84,7 @@ button {
     font-weight: 600;
     background: white;
     transition: .3s;
+    color: black;
 }
 
 button:hover {
@@ -96,6 +98,8 @@ button:hover {
 
     font-size: 3rem;
     animation: pulse 2s infinite;
+    color: black;
+
 }
 
 @keyframes pulse {
@@ -114,9 +118,10 @@ button:hover {
 }
 
 
-#watchlistContainer {
+#toWatchContainer,
+#watchedContainer {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     gap: 20px;
     padding: 20px;
 }
@@ -225,4 +230,12 @@ button:hover {
 .delete-btn:hover {
     background: #ff4d4d;
     color: white;
+}
+
+.movie-card.watched {
+    opacity: 0.6;
+}
+
+.movie-card.watched .poster h3 {
+    text-decoration: line-through;
 }

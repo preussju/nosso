@@ -3,7 +3,8 @@ import {
   addDoc,
   getDocs,
   deleteDoc,
-  doc
+  doc,
+  updateDoc,
 } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-firestore.js";
 import { db, auth } from "./firebase.js";
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-auth.js";
@@ -66,12 +67,18 @@ form.addEventListener("submit", async (e) => {
 
 async function loadWatchlist() {
 
-    const container =
+    const toWatchContainer =
         document.getElementById(
-            "watchlistContainer"
+            "toWatchContainer"
         );
 
-    container.innerHTML = "";
+    const watchedContainer =
+        document.getElementById(
+            "watchedContainer"
+        );
+
+    toWatchContainer.innerHTML = "";
+    watchedContainer.innerHTML = "";
 
     const snapshot =
         await getDocs(
@@ -84,30 +91,49 @@ async function loadWatchlist() {
         const id = doc.id;
 
 
-        container.innerHTML += `
-        <div class="movie-card ${item.type}">
+        const card = `
+        <div class="movie-card ${item.type} ${item.watched ? "watched" : ""}">
 
-    <div class="poster">
-        <h3>${item.title}</h3>
-        
-        <span class="tag">${item.type}</span>
+            <div class="poster">
+                <h3>${item.title}</h3>
 
-        <p class="added-by"> por: ${item.addedBy.split("@")[0]} </p>   
+                <span class="tag">${item.type}</span>
 
-    </div>
-        <div class="overlay">
+                <p class="added-by">
+                    por: ${item.addedBy.split("@")[0]}
+                </p>
 
-            <button class="watch-btn"> Assistido </button>
+            </div>
 
-            <div class="card">
-                <button class="delete-btn" data-id="${id}">
+            <div class="overlay">
+
+                <button
+                    class="watch-btn"
+                    data-id="${id}"
+                    data-watched="${item.watched}">
+                    ${item.watched ? "✅ Assistido" : "👀 Quero assistir"}
+                </button>
+
+                <button
+                    class="delete-btn"
+                    data-id="${id}">
                     Remover
                 </button>
+
             </div>
-            
+
         </div>
-    </div>
     `;
+        
+    if (item.watched) {
+
+        watchedContainer.innerHTML += card;
+
+    } else {
+
+        toWatchContainer.innerHTML += card;
+
+    }
 
     });
 
@@ -131,13 +157,47 @@ async function deleteItem(id) {
 
 }
 
+
+async function toggleWatched(id, currentState) {
+
+    try {
+
+        await updateDoc(
+            doc(db, "watchlist", id),
+            {
+                watched: !currentState,
+                watchedAt: !currentState
+                    ? new Date()
+                    : null
+            }
+        );
+
+        await loadWatchlist();
+
+    } catch (error) {
+
+        console.error(error);
+
+    }
+
+}
+
+
 document.addEventListener("click", (e) => {
 
     if (e.target.classList.contains("delete-btn")) {
 
+        deleteItem(e.target.dataset.id);
+    }
+
+    if (e.target.classList.contains("watch-btn")) {
+
         const id = e.target.dataset.id;
 
-        deleteItem(id);
+        const watched =
+            e.target.dataset.watched === "true";
+
+        toggleWatched(id, watched);
     }
 
 });
