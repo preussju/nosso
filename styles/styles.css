@@ -26,8 +26,14 @@ h1, h2{
     text-decoration: none;
     color: white;
     font-size: 1.5rem;
+    margin-top: 50px;
 }
 
+.login a{
+    text-decoration: none;
+    color:white;
+    margin-top: 20px;
+}
 
 .login-container {
 
@@ -238,4 +244,34 @@ button:hover {
 
 .movie-card.watched .poster h3 {
     text-decoration: line-through;
+}
+
+.counter-card {
+
+    border-radius: 16px;
+    padding: 10px;
+    text-align: center;
+    color: white;
+    box-shadow:
+        0 0 20px rgba(255, 255, 255, .1);
+
+    min-width: 300px;
+    margin-top: 50px;
+
+}
+
+.counter-card h2{
+    font-size: 1rem;
+}
+
+
+#togetherCounter,
+#anniversaryCounter {
+
+    font-size: 1.5rem;
+
+    font-weight: bold;
+
+    margin-top: 10px;
+
 }
