@@ -76,7 +76,7 @@ input, #type, textarea {
 }
 
 .capsule{
-    max-width: 300px;
+    max-width: 250px;
 }
 
 #type{
@@ -404,4 +404,21 @@ small{
     display:grid;
     grid-template-columns: 1fr 1fr;
     gap:20px;
+}
+
+input,
+textarea,
+select,
+button {
+    font-size: 16px;
+}
+
+#watchlistForm{
+    max-width: 250px;
+}
+
+input,
+textarea,
+button {
+    min-height: 48px;
 }
