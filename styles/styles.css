@@ -413,7 +413,7 @@ button {
     font-size: 16px;
 }
 
-#watchlistForm{
+#watchlistForm, #capsuleForm{
     max-width: 250px;
 }
 
