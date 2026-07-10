@@ -9,7 +9,7 @@ import {
 import { db, auth } from "./firebase.js";
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-auth.js";
 
-
+let currentFilter = "all";
 let currentUser = null;
 const form = document.getElementById("watchlistForm");
 
@@ -33,7 +33,7 @@ form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     if (!currentUser) {
-        alert("User not loaded yet");
+        alert("Usuario não autenticado. Por favor, faça login.");
         return;
     }
 
@@ -89,6 +89,13 @@ async function loadWatchlist() {
 
         const item = doc.data();
         const id = doc.id;
+
+            if (
+                currentFilter !== "all" &&
+                item.type !== currentFilter
+            ) {
+                return;
+            }
 
 
         const card = `
@@ -201,3 +208,23 @@ document.addEventListener("click", (e) => {
     }
 
 });
+
+document
+    .querySelectorAll(
+        "[data-filter]"
+    )
+    .forEach(button => {
+
+        button.addEventListener(
+            "click",
+            async () => {
+
+                currentFilter =
+                    button.dataset.filter;
+
+                await loadWatchlist();
+
+            }
+        );
+
+    });

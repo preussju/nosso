@@ -279,3 +279,129 @@ button:hover {
     margin-top: 10px;
 
 }
+
+.capsule-card {
+    background: #151515;
+
+    border-radius: 16px;
+
+    padding: 20px;
+
+    margin-bottom: 20px;
+
+    border: 1px solid #252525;
+
+    transition: 0.3s;
+}
+
+.capsule-card:hover {
+    transform: translateY(-3px);
+}
+
+.capsule-card h3 {
+    margin-bottom: 12px;
+    color : white;
+    font-size: 1.2rem;
+}
+
+.capsule-card p{
+    color: white;
+}
+
+.locked {
+    color: #bdbdbd;
+    font-size: 0.95rem;
+}
+
+.open-btn {
+
+    width: 100%;
+
+    padding: 12px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-size: 1rem;
+
+    transition: 0.3s;
+}
+
+.open-btn:hover {
+    transform: scale(1.03);
+}
+
+#capsulesContainer {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fill,
+            minmax(280px, 1fr));
+
+    gap: 20px;
+
+    margin-top: 30px;
+
+}
+
+.hidden {
+    display: none;
+}
+
+.modal {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, .8);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    z-index: 999;
+}
+
+.modal-content {
+
+    width: min(600px, 90%);
+
+    padding: 30px;
+
+    border-radius: 16px;
+
+    background: #151515;
+
+    color: white;
+
+    position: relative;
+}
+
+#closeModal1 {
+
+    max-width: 40px;
+    top: 10px;
+
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+small{
+    color:white;
+}
+
+.filters{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:20px;
+}

@@ -18,17 +18,40 @@
 
     <h1> Cápsula do Tempo ⌛</h1>
 
-    <div class="capsule">
+    <form id="capsuleForm" class="capsule">
 
-        <input type="text" id="title" placeholder="Capsule title">
-        
-        <input type="date" id="openDate">
-        
-        <textarea id="message" placeholder="Write your message">
-        </textarea>
-        
-        <button>Create Capsule</button>
+        <input type="text" id="title" placeholder="Titulo" required>
 
+        <input type="date" id="openDate" required>
+
+        <textarea id="message" placeholder="Escreva sua mensagem" required></textarea>
+
+        <button type="submit">
+            Criar Cápsula
+        </button>
+
+    </form>
+
+    <div id="capsulesContainer"></div>
+
+    <div id="capsuleModal" class="modal hidden">
+    
+        <div class="modal-content">
+    
+            <button id="closeModal1">
+                ✖
+            </button>
+    
+            <h2 id="modalTitle"></h2>
+    
+            <p id="modalAuthor"></p>
+
+            <p id="modalAuthor"></p>
+
+            <p id="modalMessage"></p>
+    
+        </div>
+    
     </div>
 
 </body>
